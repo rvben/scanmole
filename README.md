@@ -367,8 +367,10 @@ examples (not a transcript of one run):
 {"event":"error","message":"...","code":3}
 ```
 
-`hello` is the first event of every `--json` run that emits events.
-Argument-parsing errors exit before any event is written. `devices` is emitted
+`hello` is the first event of every `--json` event stream, including an
+invocation rejected during argument parsing. The informational `--help` and
+`--version` exits retain argparse's plain-text output and do not open an event
+stream. `devices` is emitted
 only for `--list-devices`; a successful scan ends with `done`, and a failure is
 reported with `error`.
 

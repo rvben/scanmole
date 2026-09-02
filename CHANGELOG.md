@@ -9,7 +9,11 @@ and the project adheres to
 
 ## [Unreleased]
 
-- Nothing worth mentioning right now.
+### Fixed
+
+- JSON invocations rejected during argument parsing now emit `hello` and
+  `error` events with exit code 2, including abbreviated `--json` options.
+  Help and version requests retain their plain-text output.
 
 
 ## [1.2.0] - 2026-08-27

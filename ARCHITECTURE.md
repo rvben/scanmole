@@ -318,11 +318,11 @@ run:
 {"event": "error", "message": "scanimage failed: <last lines of stderr>", "code": 3}
 ```
 
-- `hello` is the first event of every `--json` run, no matter what the run does,
-  and carries the version of the producing `scanmole`. A consumer can decide
-  compatibility before interpreting anything else. (Only argparse usage errors
-  exit before any event is written, so the guarantee reads: every run that emits
-  events emits `hello` first.)
+- `hello` is the first event of every `--json` event stream, including an
+  invocation rejected during argument parsing, and carries the version of the
+  producing `scanmole`. A consumer can decide compatibility before interpreting
+  anything else. The informational `--help` and `--version` exits retain
+  argparse's plain-text output and do not open an event stream.
 - `devices` is emitted only for `--list-devices`.
 - `start` carries the *requested* (abstract) settings; `settings` follows on
   scanner runs and reports the values actually negotiated with the backend after
